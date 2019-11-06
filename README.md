@@ -1,4 +1,4 @@
-# IA
+# IA Genetic algorithms (GA) to find a solution to the traveling salesman problem (TSP).
  
 Lembram do problema do caixeiro viajante? (se não lembrar, vale consultar aqui: https://pt.wikipedia.org/wiki/Problema_do_caixeiro-viajante)
 
