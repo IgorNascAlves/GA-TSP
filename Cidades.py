@@ -1,6 +1,5 @@
 import random
 import numpy as np
-import calcDist as CD
 import Cidade as C
 
 class Cidades:
@@ -45,10 +44,10 @@ class Cidades:
       return dist    
 
   def calcDistTotal(self, vetor):
-      total = 0
-      for i in range(0, len(vetor), 1):
-          total = total + self.matrizDist[i][i+1]
-      return total
+    total = 0
+    for i in range(0, len(vetor)-1, 1):
+      total = total + self.matrizDist[vetor[i]][vetor[i+1]]
+    return total
     
   def __repr__(self):
       return str(self.cidades)
