@@ -6,6 +6,22 @@ class Cidades:
   cidades = []
   matrizDist = []
 
+  def leitorArqVar(self,num):
+    self.cidades.clear()
+    arquivo = open('mapa250.txt', 'r')
+    stream = arquivo.readlines()
+    lines = []
+    lines2 = []
+    for line in stream:
+      vetor = line.split()
+      cidade = C.Cidade(float(vetor[0]),float(vetor[1]))
+      lines.append(cidade)
+    arquivo.close()
+    for i in range(0,num,1):
+      lines2.append(lines[i])
+    self.cidades = lines2
+    self.construirMatriz()  
+
   def leitorArq(self):
     self.cidades.clear()
     arquivo = open('mapa250.txt', 'r')
