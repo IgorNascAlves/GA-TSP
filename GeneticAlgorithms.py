@@ -19,6 +19,11 @@ class GeneticAlgorithms:
             filhos.append(Fi.Filho(ordemCidade, dados))
         return Fa.Familia(filhos, dados)
 
+    def fitness(self):
+        for i in range(0,self.numeroFilhos,1):
+            self.familia.filhos[i].calcDist()
+        self.familia.ordenarDecreFilhos()
+    
     def roletaNL(self):
         total = 0
         for i in self.familia.filhos:
@@ -63,6 +68,7 @@ class GeneticAlgorithms:
         filhos.append(self.familia.filhos[1])
         self.familia = Fa.Familia(filhos, self.dados)
         self.mutacao()
+        self.fitness()
 
     def troca(self, vetor):
         pontoA = random.randint(0,len(vetor)-1)
@@ -71,7 +77,6 @@ class GeneticAlgorithms:
         vetor[pontoA] = vetor[pontoB]
         vetor[pontoB] = valor
         return vetor
-
 
     def mutacao(self):
         for x in range(0,int(self.numeroFilhos*0.1),1):
